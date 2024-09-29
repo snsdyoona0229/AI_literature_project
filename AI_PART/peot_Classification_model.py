@@ -25,7 +25,7 @@ import tensorflow as tf
 from tensorflow import keras
 from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
 
-df = pd.read_excel("C:\\Users\\user\\Desktop\\literature_project\\AI_MODEL\\peot_Classification_model\\all_peot_0206.xlsx")
+df = pd.read_excel("/literature_project/AI_MODEL/peot_Classification_model/all_peot_0206.xlsx")
 df=df[['athor','Name','class_id','poet']]
 #print("總數: %d ." % len(df))
 #df.sample(10)
@@ -117,7 +117,7 @@ def train_model():
     #callbacks=[EarlyStopping(monitor='val_loss', patience=3, min_delta=0.0001)])
 
 #########################################################################################################
-model = tf.keras.models.load_model('C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\peot_Classification_model\\peot_Classification_model_02.h5')
+model = tf.keras.models.load_model('/literature_project/AI_PART/peot_Classification_model/peot_Classification_model_02.h5')
 #accr = model.evaluate(X_test,Y_test)#準確率
 #print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}'.format(accr[0],accr[1]))
 
