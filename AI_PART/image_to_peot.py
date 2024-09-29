@@ -9,7 +9,7 @@ import sys
 import shutil
 from subprocess import call
 import webbrowser
-sys.path.append('C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\')
+sys.path.append('/literature_project/AI_PART')
 import geration_poet
 import peot_Classification_model
 
