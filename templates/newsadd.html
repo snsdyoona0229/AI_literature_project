@@ -1,0 +1,65 @@
+{% extends "baseadmin.html" %}
+{% load static %} 
+
+{% block content %}
+	<div class="contentbox">
+		<form action="." id="form1" name="form1" method="POST">
+		  {% csrf_token %}
+		  <table width="90%" align="center">
+
+			<tr>
+			  <th colspan="2" align="left"> 詩詞生成與判斷</th>
+			</tr>
+			<tr>
+			  <td width="20%" valign="baseline"><strong>分類</strong></td>
+			  <td valign="baseline">
+				  <select name="news_type" id="news_type">
+					  <option value="AChiese" selected="selected">創世紀詩詞風格</option>
+					  <option value="BChiese">原住民詩詞風格</option>
+					  <option value="CChiese">客家詩詞風格</option>
+					  <option value="DChiese">新月詩詞風格</option>
+					  <option value="EChiese">新詩詩詞風格</option>
+					  <option value="FChiese">現代詩詞風格</option>
+					  <option value="GChiese">笠詩詞風格</option>
+					  <option value="HChiese">藍星詩詞風格</option>
+				  </select>
+			  </td>
+			</tr>
+			
+			<tr>
+		    <td ><strong>路徑:</strong></td>
+            <td valign="baseline"><input type="text" name="url" id="url" size="80" value = "."required /></td>
+			</tr>
+			
+			
+			<tr>
+			  <td valign="baseline"><strong>標題</strong></td>
+			  <td valign="baseline"><input name="news_subject" type="text" id="news_subject" size="45" required /></td>
+			</tr>
+			<tr>
+			  <td valign="baseline"><strong>作者</strong></td>
+			  <td valign="baseline"><input type="text" name="news_editor" id="news_editor" required /></td>
+			</tr>
+			<tr>
+			  <td valign="baseline"><strong>內容</strong></td>
+			  <td valign="baseline"><textarea name="news_content" id="news_content" cols="60" rows="15"  required>請輸入</textarea></td>
+			</tr>
+			<tr>
+			  <td valign="baseline"><strong>選項</strong></td>
+			  <td valign="baseline">
+				<input type="radio" name="news_ok" id="news_ok2" value="v_01" checked="checked" />AI生成詩詞(內容請輸入一句5~15)
+				<input type="radio" name="news_ok" id="news_ok" value="v_02" />判斷時詞風格(輸入一篇文章)
+				<input type="radio" name="news_ok" id="news_ok3" value="v_03" />圖像生成文章
+			  </td>
+		  </tr>
+			<tr>
+			  <td>&nbsp;</td>
+			  <td><input type="submit" name="button" id="button" value="送出" />
+			  <input type="reset" name="button2" id="button2" value="重設" />
+			  <input type="button" name="button3" id="button3" value="回主頁面" onclick="window.location='/adminmain/'" /></td>
+			</tr>
+		  </table>
+		  <span style="color:red">{{message}}</span>
+		</form>
+	</div>
+{% endblock %}
