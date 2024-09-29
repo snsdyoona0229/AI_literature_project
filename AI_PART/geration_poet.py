@@ -6,7 +6,7 @@ from transformers import BertTokenizer, GPT2LMHeadModel, TextGenerationPipeline
 import jieba
 import os
 import sys
-sys.path.append('C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\')
+sys.path.append('/literature_project/AI_PART')
 import peot_Classification_model
 
 
@@ -21,7 +21,7 @@ tokenizer = BertTokenizerFast.from_pretrained('bert-base-chinese')
 model = AutoModelForCausalLM.from_pretrained('ckiplab/gpt2-base-chinese') # or other models above
 
 # trained model loading
-#model_headlines_path = 'C:\\Users\\user\\Desktop\\literature_project\\AI_MODEL\\GPT_WRITE_POET\\CChiese'
+#model_headlines_path = '/literature_project/AI_MODEL/GPT_WRITE_POET/CChiese'
 
 #headlines_model = AutoModelForCausalLM.from_pretrained(model_headlines_path)
 #headlines_tokenizer = BertTokenizerFast.from_pretrained(model_headlines_path)
@@ -69,7 +69,7 @@ def Top_p_nucleus_sampling():
 
 
 def peot_generation(model_headlines_path,text):
-    model_headlines_path = 'C:\\Users\\user\\Desktop\\literature_project\\AI_MODEL\\GPT_WRITE_POET\\'+ model_headlines_path
+    model_headlines_path = '/literature_project/AI_MODEL/GPT_WRITE_POET/'+ model_headlines_path
     headlines_model = AutoModelForCausalLM.from_pretrained(model_headlines_path)
     headlines_tokenizer = BertTokenizerFast.from_pretrained(model_headlines_path)
     text = text
