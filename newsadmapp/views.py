@@ -15,7 +15,7 @@ import sys
 import shutil
 from subprocess import call
 import webbrowser
-sys.path.append('C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\')
+sys.path.append('/literature_project/AI_PART')
 import geration_poet
 import peot_Classification_model
 import image_to_peot
@@ -131,7 +131,7 @@ def newsadd(request):  #新增資料
 			category_class = str(poet_style[peot_Classification_model.predict(str(content))[2]])
 			editor = "null"            
 		if ok=='v_02':
-			call(["python", "C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\peot_Classification_model.py"])
+			call(["python", "/literature_project/AI_PART/peot_Classification_model.py"])
 			enabled = True
 			peot_Classification_model.predict(str(content))
 			context = str(content) +"[["+str(peot_Classification_model.predict(str(content))[0])+"]]風格百分比"
@@ -141,12 +141,12 @@ def newsadd(request):  #新增資料
 			c = category_poet.index(str(category))
 			category_p = str(poet_style[c])
             
-			call(["python", "C:\\Users\\user\\Desktop\\django\\literature_project\\AI_PART\\image_to_peot.py"])
+			call(["python", "/literature_project/AI_PART/image_to_peot.py"])
 			enabled = True
 			input_string = request.POST.get('url', '')
 			input_string = str(input_string).replace("\\", "\\\\")
 			context = image_to_peot.image_to_text_gpt(input_string,str(category))
-			shutil.copy(input_string, "C:\\Users\\user\\Desktop\\django\\literature_project\\media\\") 
+			shutil.copy(input_string, "/literature_project/media") 
 			#input_string = str(input_string).replace("\\\\","/")
 			str_x = input_string.split("\\")
 			editor = str_x[len(str_x)-1]
